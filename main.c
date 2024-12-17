@@ -8,7 +8,7 @@
 
 
 void display() {
-    /* rotate a triangle around */
+    // rotate a triangle around 
     glClear(GL_COLOR_BUFFER_BIT);
     glBegin(GL_TRIANGLES);
     glColor3f(1.0f, 0.0f, 0.0f);
@@ -42,7 +42,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
     HWND hwnd = CreateWindowEx(
         0, // optional window style
         CLASS_NAME, // name of window class
-        L"Learn to Program Windows", // window text (title)
+        L"demo", // window text (title)
         WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN, // window style
 
         CW_USEDEFAULT, // x
@@ -61,7 +61,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
         return 0;
     }
 
-    HDC hDC = getDC(hwnd); // get the device context
+    HDC hDC = GetDC(hwnd); // get the device context
 
     PIXELFORMATDESCRIPTOR pfd = { }; // make pixel format descriptor struct
     pfd.nSize = sizeof(pfd);
@@ -95,7 +95,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
     // release resources and clean up
 
     wglMakeCurrent(NULL, NULL); // make hRC no longer the render context of the thread
-    ReleaseDC(hDC, hwnd); // release the device context
+    ReleaseDC(hwnd, hDC); // release the device context
     wglDeleteContext(hRC); // release the opengl rendering context
 
     return 0;

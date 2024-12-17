@@ -8,6 +8,10 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "-lopengl32",
+                "-lglfw3",
+                "-lgdi32",
+                "C:\\msys64\\mingw64\\include\\GLAD\\glad.c",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
